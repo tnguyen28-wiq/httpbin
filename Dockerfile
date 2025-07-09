@@ -8,7 +8,7 @@ LABEL org.kennethreitz.vendor="Kenneth Reitz"
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
-RUN apt update -y && apt install pipx git -y && pipx install --no-cache-dir pipenv
+RUN apt update -y && apt install pipx git -y && pipx install  pipenv
 
 ADD Pipfile Pipfile.lock /httpbin/
 WORKDIR /httpbin
