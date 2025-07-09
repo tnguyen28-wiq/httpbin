@@ -18,7 +18,7 @@ RUN python3 -m venv venv && . venv/bin/activate &&  venv/bin/pip install --no-ca
 RUN /bin/bash -c "venv/bin/pip install --no-cache-dir -r <(pipenv lock -r)"
 
 ADD . /httpbin
-RUN pip3 install --no-cache-dir /httpbin
+RUN venv/bin/pip install --no-cache-dir /httpbin
 
 EXPOSE 80
 
