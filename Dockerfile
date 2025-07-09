@@ -1,4 +1,4 @@
-FROM ubuntu:24.10
+FROM ubuntu:24.04
 
 LABEL name="httpbin"
 LABEL version="0.9.2"
@@ -8,14 +8,14 @@ LABEL org.kennethreitz.vendor="Kenneth Reitz"
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
-RUN apt update -y && apt install pipx git -y && pipx install  pipenv
+RUN apt update -y && apt install python3-pip git -y && pip3 install --no-cache-dir pipenv
 
 ADD Pipfile Pipfile.lock /httpbin/
 WORKDIR /httpbin
-RUN /bin/bash -c "pipx install -r <(pipenv lock -r)"
+RUN /bin/bash -c "pip3 install --no-cache-dir -r <(pipenv lock -r)"
 
 ADD . /httpbin
-RUN pipx install  /httpbin
+RUN pip3 install --no-cache-dir /httpbin
 
 EXPOSE 80
 
