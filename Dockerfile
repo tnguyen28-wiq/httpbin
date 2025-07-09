@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:24.04.2
 
 LABEL name="httpbin"
 LABEL version="0.9.2"
