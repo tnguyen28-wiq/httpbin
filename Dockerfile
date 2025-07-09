@@ -8,7 +8,7 @@ LABEL org.kennethreitz.vendor="Kenneth Reitz"
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
-RUN apt update -y && apt install python3-pip git -y && apt install python3-venv && python3 -m venv venv && source myenv/bin/activate && pip3 install --no-cache-dir pipenv
+RUN apt update -y && apt install python3-pip git -y && apt install python3-venv -y && python3 -m venv venv && source myenv/bin/activate && pip3 install --no-cache-dir pipenv
 
 ADD Pipfile Pipfile.lock /httpbin/
 WORKDIR /httpbin
