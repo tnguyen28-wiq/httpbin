@@ -12,10 +12,10 @@ RUN apt update -y && apt install pipx git -y && pipx install  pipenv
 
 ADD Pipfile Pipfile.lock /httpbin/
 WORKDIR /httpbin
-RUN /bin/bash -c "pip3 install --no-cache-dir -r <(pipenv lock -r)"
+RUN /bin/bash -c "pipx install -r <(pipenv lock -r)"
 
 ADD . /httpbin
-RUN pip3 install --no-cache-dir /httpbin
+RUN pipx install  /httpbin
 
 EXPOSE 80
 
