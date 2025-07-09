@@ -10,8 +10,7 @@ ENV LANG=C.UTF-8
 
 RUN apt update -y && apt install python3-pip git -y 
 RUN apt install python3-venv -y
-RUN python3 -m venv venv && . venv/bin/activate
-RUN pip3 install --no-cache-dir pipenv
+RUN python3 -m venv venv && . venv/bin/activate &&  venv/bin/pip install --no-cache-dir pipenv
 
 ADD Pipfile Pipfile.lock /httpbin/
 WORKDIR /httpbin
