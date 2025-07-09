@@ -22,4 +22,4 @@ RUN venv/bin/pip install --no-cache-dir /httpbin
 
 EXPOSE 80
 
-CMD ["gunicorn", "-b", "0.0.0.0:80", "httpbin:app", "-k", "gevent"]
+CMD ["venv/bin/gunicorn", "-b", "0.0.0.0:80", "httpbin:app", "-k", "gevent"]
