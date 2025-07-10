@@ -9,13 +9,13 @@ ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
 
-ADD Pipfile Pipfile.lock /httpbin/
+ADD requirements.txt /httpbin/
 WORKDIR /httpbin
 
 RUN apt update -y && apt install python3-pip git -y 
 RUN apt install python3-venv -y
 RUN python3 -m venv venv && . venv/bin/activate &&  venv/bin/pip install --no-cache-dir pipenv
-RUN /bin/bash -c "venv/bin/pip install --no-cache-dir -r <(pipenv lock -r)"
+RUN /bin/bash -c "venv/bin/pip install --no-cache-dir -r requirements.txt
 
 ADD . /httpbin
 RUN venv/bin/pip install --no-cache-dir /httpbin
