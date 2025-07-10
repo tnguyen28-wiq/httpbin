@@ -19,3 +19,4 @@ six
 flasgger
 pyyaml
 rope
+werkzeug
