@@ -15,7 +15,7 @@ WORKDIR /httpbin
 RUN apt update -y && apt install python3-pip git -y 
 RUN apt install python3-venv -y
 RUN python3 -m venv venv && . venv/bin/activate &&  venv/bin/pip install --no-cache-dir pipenv
-RUN /bin/bash -c "venv/bin/pip install --no-cache-dir -r requirements.txt
+RUN /bin/bash -c "venv/bin/pip install --no-cache-dir -r requirements.txt"
 
 ADD . /httpbin
 RUN venv/bin/pip install --no-cache-dir /httpbin
